@@ -3,7 +3,6 @@ package com.kernel.finch.common.loggers.utils
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.internal.bind.DateTypeAdapter
 import java.util.*
 
 object GsonUtil {
@@ -12,12 +11,11 @@ object GsonUtil {
         GsonBuilder()
             .setPrettyPrinting()
             .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-            .registerTypeAdapter(Date::class.java, DateTypeAdapter())
+            // Uses Gson's built-in Date adapter under the hood:
+            .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
             .create()
     }
 
     val instance: Gson
-        get() {
-            return gson
-        }
+        get() = gson
 }
