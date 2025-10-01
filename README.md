@@ -27,17 +27,20 @@ Pick a UI implementation and add the dependency:
 
 ````java
 dependencies {
-    debugImplementation 'com.github.kernel0x.finch:ui-drawer:2.2.11'
-    releaseImplementation 'com.github.kernel0x.finch:noop:2.2.11'
+    debugImplementation 'com.github.kernel0x.finch:ui-drawer:3.0.0'
+    releaseImplementation 'com.github.kernel0x.finch:noop:3.0.0'
     // optional only for OkHttp
-    debugImplementation 'com.github.kernel0x.finch:log-okhttp:2.2.11'
-    releaseImplementation 'com.github.kernel0x.finch:log-okhttp-noop:2.2.11'
+    debugImplementation 'com.github.kernel0x.finch:log-okhttp:3.0.0'
+    releaseImplementation 'com.github.kernel0x.finch:log-okhttp-noop:3.0.0'
     // optional only for GRPC
-    debugImplementation 'com.github.kernel0x.finch:log-grpc:2.2.11'
-    releaseImplementation 'com.github.kernel0x.finch:log-grpc-noop:2.2.11'
+    debugImplementation 'com.github.kernel0x.finch:log-grpc:3.0.0'
+    releaseImplementation 'com.github.kernel0x.finch:log-grpc-noop:3.0.0'
+    // optional only for Connectrpc
+    debugImplementation 'com.github.kernel0x.finch:log-connectrpc:3.0.0'
+    releaseImplementation 'com.github.kernel0x.finch:log-connectrpc-noop:3.0.0'
     // optional only for logs
-    debugImplementation 'com.github.kernel0x.finch:log:2.2.11'
-    releaseImplementation 'com.github.kernel0x.finch:log-noop:2.2.11'
+    debugImplementation 'com.github.kernel0x.finch:log:3.0.0'
+    releaseImplementation 'com.github.kernel0x.finch:log-noop:3.0.0'
 }
 ````
 
@@ -114,6 +117,31 @@ Finch.initialize(
     application = this,
     configuration = Configuration(
         networkLoggers = listOf(FinchGrpcLogger),
+        ...
+    ),
+)
+```
+
+### Connectrpc
+
+Add FinchConnectRpcLogger.logger to the method intercept in building ManagedChannel and add FinchConnectRpcLogger to Configuration object.
+
+```kotlin
+val client = ProtocolClient(
+        httpClient = ConnectOkHttpClient(okHttpClient),
+        ProtocolClientConfig(
+                host = host,
+                serializationStrategy = GoogleJavaProtobufStrategy(),
+                protocol = Protocol.CONNECT,
+                interceptors = listOf(FinchConnectRpcLogger.factory()) // <-- Finch Connect logger here
+        )
+)
+```
+```java
+Finch.initialize(
+    application = this,
+    configuration = Configuration(
+        networkLoggers = listOf(FinchConnectRpcLogger),
         ...
     ),
 )
