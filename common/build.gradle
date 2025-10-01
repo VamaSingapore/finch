@@ -3,6 +3,7 @@ apply plugin: "kotlin-android"
 apply plugin: "kotlin-android-extensions"
 
 android {
+    namespace "com.kernel.finch.common"
     compileSdkVersion versions.compileSdk
     defaultConfig {
         minSdkVersion versions.minSdk

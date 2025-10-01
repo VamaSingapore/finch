@@ -27,20 +27,20 @@ Pick a UI implementation and add the dependency:
 
 ````java
 dependencies {
-    debugImplementation 'com.github.kernel0x.finch:ui-drawer:3.0.0'
-    releaseImplementation 'com.github.kernel0x.finch:noop:3.0.0'
+    debugImplementation 'com.github.kernel0x.finch:ui-drawer:3.0.1'
+    releaseImplementation 'com.github.kernel0x.finch:noop:3.0.1'
     // optional only for OkHttp
-    debugImplementation 'com.github.kernel0x.finch:log-okhttp:3.0.0'
-    releaseImplementation 'com.github.kernel0x.finch:log-okhttp-noop:3.0.0'
+    debugImplementation 'com.github.kernel0x.finch:log-okhttp:3.0.1'
+    releaseImplementation 'com.github.kernel0x.finch:log-okhttp-noop:3.0.1'
     // optional only for GRPC
-    debugImplementation 'com.github.kernel0x.finch:log-grpc:3.0.0'
-    releaseImplementation 'com.github.kernel0x.finch:log-grpc-noop:3.0.0'
+    debugImplementation 'com.github.kernel0x.finch:log-grpc:3.0.1'
+    releaseImplementation 'com.github.kernel0x.finch:log-grpc-noop:3.0.1'
     // optional only for Connectrpc
-    debugImplementation 'com.github.kernel0x.finch:log-connectrpc:3.0.0'
-    releaseImplementation 'com.github.kernel0x.finch:log-connectrpc-noop:3.0.0'
+    debugImplementation 'com.github.kernel0x.finch:log-connectrpc:3.0.1'
+    releaseImplementation 'com.github.kernel0x.finch:log-connectrpc-noop:3.0.1'
     // optional only for logs
-    debugImplementation 'com.github.kernel0x.finch:log:3.0.0'
-    releaseImplementation 'com.github.kernel0x.finch:log-noop:3.0.0'
+    debugImplementation 'com.github.kernel0x.finch:log:3.0.1'
+    releaseImplementation 'com.github.kernel0x.finch:log-noop:3.0.1'
 }
 ````
 

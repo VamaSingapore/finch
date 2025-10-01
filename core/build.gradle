@@ -4,6 +4,7 @@ apply plugin: "kotlin-android-extensions"
 apply plugin: "kotlin-kapt"
 
 android {
+    namespace "com.kernel.finch.core"
     compileSdkVersion versions.compileSdk
     defaultConfig {
         minSdkVersion versions.minSdk

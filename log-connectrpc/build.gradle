@@ -1,38 +1,22 @@
-plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
-}
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
 
 android {
-    namespace 'com.kernel0x.finch.connectrpc'
-    compileSdkVersion 36
-
+    namespace "com.kernel.finch.connectrpc"
+    compileSdkVersion versions.compileSdk
     defaultConfig {
-        minSdk 21
-        consumerProguardFiles 'proguard-consumer.pro'
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = '11'
-        freeCompilerArgs += ['-Xjvm-default=all']
-    }
-
-    publishing {
-        singleVariant("release") { withSourcesJar() }
-        singleVariant("debug") { withSourcesJar() }
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.libraryVersionCode
+        versionName versions.libraryVersion
+        consumerProguardFiles "consumer-rules.pro"
     }
 }
 
 dependencies {
-    // Only needed for types at compile-time (your app already brings runtime).
-    compileOnly "com.connectrpc:connect-kotlin:0.7.4"   // latest as of Jun 30, 2025
-    compileOnly "com.squareup.okio:okio:3.16.0"
-
-    // No hard dependency on Finch internals — we log via reflection to FinchLogger if present.
-    // If you want to wire into common-loggers later, you can add:
-    // api project(':common-loggers')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    implementation "com.connectrpc:connect-kotlin:$versions.connectKotlinVersion"
+    implementation "com.squareup.okio:$versions.okio"
+    api project(":common-loggers")
 }
