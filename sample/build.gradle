@@ -30,12 +30,12 @@ android {
 }
 
 dependencies {
-    debugImplementation 'com.github.VamaSingapore.finch:ui-drawer:3.0.1'
-    releaseImplementation 'com.github.VamaSingapore.finch:noop:3.0.1'
-    debugImplementation 'com.github.VamaSingapore.finch:log-okhttp:3.0.1'
-    releaseImplementation 'com.github.VamaSingapore.finch:log-okhttp-noop:3.0.1'
-    debugImplementation 'com.github.VamaSingapore.finch:log:3.0.1'
-    releaseImplementation 'com.github.VamaSingapore.finch:log-noop:3.0.1'
+//    debugImplementation 'com.github.VamaSingapore.finch:ui-drawer:3.0.4'
+//    releaseImplementation 'com.github.VamaSingapore.finch:noop:3.0.4'
+//    debugImplementation 'com.github.VamaSingapore.finch:log-okhttp:3.0.4'
+//    releaseImplementation 'com.github.VamaSingapore.finch:log-okhttp-noop:3.0.4'
+//    debugImplementation 'com.github.VamaSingapore.finch:log:3.0.4'
+//    releaseImplementation 'com.github.VamaSingapore.finch:log-noop:3.0.4'
     debugImplementation project(":ui-drawer")
     debugImplementation project(":log")
     debugImplementation project(":log-okhttp")

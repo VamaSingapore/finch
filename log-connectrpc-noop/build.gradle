@@ -16,7 +16,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    implementation "com.connectrpc:connect-kotlin:$versions.connectKotlinVersion"
-    implementation "com.squareup.okio:$versions.okio"
+    implementation "com.connectrpc:connect-kotlin:$versions.connectRpcKotlin"
+    implementation "com.squareup.okio:okio:$versions.okio"
     api project(":common-loggers")
 }
