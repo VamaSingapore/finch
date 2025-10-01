@@ -1,0 +1,8 @@
+# jitpack.yml
+jdk:
+  - 17
+
+android:
+  components:
+    - build-tools-35.0.0
+    - android-35
